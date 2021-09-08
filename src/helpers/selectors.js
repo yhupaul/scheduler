@@ -1,4 +1,4 @@
-function getAppointmentsForDay(state, day) {
+export function getAppointmentsForDay(state, day) {
   const filteredDay = state.days.find(d => day === d.name);
   // console.debug(filteredDay)
   if(!filteredDay){
@@ -16,7 +16,7 @@ function getAppointmentsForDay(state, day) {
   return filtersAppointments;
 }
 
-function getInterview(state, interview) {
+export function getInterview(state, interview) {
   
   if(!interview){
     return null;
@@ -29,14 +29,19 @@ function getInterview(state, interview) {
 
   return {student: studentName, interviewer: selectedInterviewer};
 }
-// {keyName: "keyvalue"}
-// {  
-//   "student": "Lydia Miller-Jones",
-//   "interviewer": {  
-//     "id": 1,
-//     "name": "Sylvia Palmer",
-//     "avatar": "https://i.imgur.com/LpaY82x.png"
-//   }
-// }
 
-module.exports = { getInterview, getAppointmentsForDay }; 
+export function getInterviewersForDay(state, day) {
+  const interviewersArray = [];
+  const days = [...state.days];
+  const interviewers = { ...state.interviewers };
+  const today = days.filter((d) => d.name === day);
+  // if requested day is in appointments, return all the appointments for today
+  const todaysInterviewers = today[0] && today[0].interviewers;
+  // if there are appointments, push them to appointmentsArray
+  todaysInterviewers &&
+    todaysInterviewers.map((i) => interviewersArray.push(interviewers[i]));
+
+  return interviewersArray;
+}
+
+// module.exports = { getInterview, getAppointmentsForDay, getInterviewersForDay }; 
