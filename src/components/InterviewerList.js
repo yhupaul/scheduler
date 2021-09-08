@@ -5,19 +5,19 @@ import InterviewerListItem from "./InterviewerListItem";
 // let classNames = require( 'classnames' );
 
 export default function InterviewList(props){
-  console.log()
-  const interviewers = props.interviewers.map(interviewer => {
+
+  const interviewers = props.interviewers && props.interviewers.map(interviewer => {
     return (
       <InterviewerListItem
         key={interviewer.id}
         name={interviewer.name}
         avatar={interviewer.avatar}
         selected={interviewer.id === props.interviewer}
-        setInterviewer={event => props.setInterviewer(interviewer.id)}
+        setInterviewer={event => props.onChange(interviewer.id)}
       />
     );
   });
-
+//line15 props.value!!!
   
   return (
     <section className="interviewers">
