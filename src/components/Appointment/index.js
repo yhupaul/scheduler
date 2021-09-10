@@ -8,8 +8,7 @@ import Status from "components/Appointment/Status";
 import Confirm from "components/Appointment/Confirm";
 import Error from "components/Appointment/Error";
 import useVisualMode from "hooks/useVisualMode";
-// import getAppointmentsForDay from "helpers/selectors";
-// import getInterviewersForDay from "helpers/selectors";
+
 
 export default function Appointment(props) {
   const EMPTY = "EMPTY";
@@ -18,7 +17,7 @@ export default function Appointment(props) {
   const SAVING = "SAVING";
   const DELETING = "DELETING";
   const CONFIRM = "CONFIRM";
-  const EDIT ="EDIT";
+  const EDIT = "EDIT";
   const ERROR_SAVE = "ERROR_SAVE";
   const ERROR_DELETE = "ERROR_DELETE";
 

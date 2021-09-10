@@ -3,8 +3,6 @@ import React from "react";
 import "components/Button.scss";
 let classNames = require( 'classnames' );
 
-
-
 export default function Button(props) {
    const buttonClass = classNames("button", {
       "button--confirm": props.confirm,
@@ -20,4 +18,4 @@ export default function Button(props) {
         {props.children}
       </button>
     );
- }
+}

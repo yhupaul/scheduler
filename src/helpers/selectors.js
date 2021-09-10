@@ -1,9 +1,10 @@
 export function getAppointmentsForDay(state, day) {
   const filteredDay = state.days.find(d => day === d.name);
-  // console.debug(filteredDay)
+
   if(!filteredDay){
     return [];
   }
+
   const appointmentIds = filteredDay.appointments;
   const filtersAppointments = [];
   Object.entries(state.appointments).forEach(([key, value]) => {
@@ -12,7 +13,6 @@ export function getAppointmentsForDay(state, day) {
     }
   })
  
-  // console.log("............", filtersAppointments)
   return filtersAppointments;
 }
 
@@ -44,4 +44,3 @@ export function getInterviewersForDay(state, day) {
   return interviewersArray;
 }
 
-// module.exports = { getInterview, getAppointmentsForDay, getInterviewersForDay }; 

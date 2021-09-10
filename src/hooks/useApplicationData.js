@@ -17,27 +17,27 @@ export default function useApplicationData() {
   }
 
   // state
-const [state, setState] = useState({
-  day: "Monday",
-  days: [],
-  appointments: {}
-});
-
-// setday
-const setDay = day => setState({ ...state, day });
-
-useEffect(() => {
-  const daysURL = "/api/days"
-  const appointmentsURL = "/api/appointments"
-  const interviewersURL = "/api/interviewers"
-
-  Promise.all([
-  axios.get(daysURL),
-  axios.get(appointmentsURL),
-  axios.get(interviewersURL)
-  ]).then(all => {
-    setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data}));
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    appointments: {}
   });
+
+  // setday
+  const setDay = day => setState({ ...state, day });
+
+  useEffect(() => {
+    const daysURL = "/api/days"
+    const appointmentsURL = "/api/appointments"
+    const interviewersURL = "/api/interviewers"
+
+    Promise.all([
+    axios.get(daysURL),
+    axios.get(appointmentsURL),
+    axios.get(interviewersURL)
+    ]).then(all => {
+      setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data}));
+    });
 },[]);
 
 // bookInterview
@@ -54,7 +54,7 @@ function bookInterview(id, interview) {
   
   return axios.put(`/api/appointments/${id}`, {interview}) //appointment
   .then((res) => {
-    remainSpots(id, 1);
+    remainSpots(id, -1);
     setState({
       ...state,
       appointments
