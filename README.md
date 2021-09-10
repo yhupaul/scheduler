@@ -2,9 +2,9 @@
 Using the latest tools and techniques, we build and test a React application that allows users to book and cancel interviews. We combine a concise API with a WebSocket server to build a realtime experience.
 
 ## Screenshots
-!["Screenshot of first"][https://github.com/yhupaul/scheduler/blob/master/doc/first%20page.png]
-!["Screenshot of save"][https://github.com/yhupaul/scheduler/blob/master/doc/save.png]
-!["Screenshot of delete"][https://github.com/yhupaul/scheduler/blob/master/doc/delete.png]
+!["Screenshot of first"](https://github.com/yhupaul/scheduler/blob/master/doc/first%20page.png)
+!["Screenshot of save"](https://github.com/yhupaul/scheduler/blob/master/doc/save.png)
+!["Screenshot of delete"](https://github.com/yhupaul/scheduler/blob/master/doc/delete.png)
 
 
 ## Setup
